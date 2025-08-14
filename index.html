@@ -1,0 +1,109 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div id="mboh">
+      <img sizes="images__1_-removebg-preview.png" srcset="images__1_-removebg-preview.png" src="images__1_-removebg-preview.png" alt="images__1_-removebg-preview.png">
+<div id="wadah">
+    <div class="container">
+    <p1>Ori text:</p1>
+  <div class="isi">
+    <input type="text" placeholder="batas maksimal 10 digit" id="teks" maxlength="10" />
+  <button onclick="addEnd()">Enkripsi</button>
+  </div>
+  </div>
+  <p1>Enkripsi:</p1>
+  <p id="hasil"></p>
+  <p1>Deskripsi:</p1>
+  <p id="print"></p>
+  
+</div>
+    </div>  
+  <script>
+    function addEnd(){
+      let teks = document.getElementById("teks").value;
+      let hasil = "";
+      for(i=0;i<teks.length;i++){
+        let hurufBaru = String.fromCharCode(teks.charCodeAt(i) + 1);
+        let angkaAcak = Math.floor(Math.random() * 10);
+        hasil += hurufBaru + angkaAcak
+      } document.getElementById("hasil").innerText = "proses...";
+        setTimeout(()=>{
+          document.getElementById("hasil").innerText = hasil;
+        },1500);
+        document.getElementById("print").innerText = "proses...";
+                setTimeout(()=>{
+          document.getElementById("print").innerText = teks;
+        },1500);
+        document.getElementById("teks").value="";
+    }
+  </script>
+  
+  <style>
+    .container{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    #wadah{
+      flex-direction: column;
+    }
+    p1{
+      color: red;
+      font-weight: bold;
+    }
+    p{
+      color: red;
+      border: 2px solid black;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: white;
+    }
+    input{
+      border: 2px solid black;
+      margin-top: 15px;
+      height: 32px;
+      border-radius: 5px;
+    }
+    button{
+      height: 32px;
+      background-color: red;
+      color: white;
+      border: 2px solid red;
+      border-radius: 5px;
+    }
+    button:hover{
+     background-color: white;
+     color: red;
+     border: 2px solid white;
+     transition: 0.5s ease-in-out;
+    }
+    #wadah{
+      border: 2px solid lightgrey;
+      background-color: lightgrey;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    img{
+      width: 50%;
+      margin-bottom: -50px;
+      
+    }
+    #mboh{
+      display: flex;
+      flex-direction: column;
+      grid-gap: 1px;
+    }
+  </style>
+</body>
+</html>
